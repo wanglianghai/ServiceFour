@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.text.LoginFilter;
 import android.util.Log;
 
 import com.bignerdranch.android.servicetest.MainActivity;
@@ -56,6 +57,12 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i(TAG, "onStartCommand: ");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG, "run: in thread");
+            }
+        }).start();
         return super.onStartCommand(intent, flags, startId);
     }
 
